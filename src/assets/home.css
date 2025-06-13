@@ -1,0 +1,419 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.portfolio {
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Header styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  position: relative;
+  height: 60px;
+}
+
+/* Wiggle animation */
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-5deg);
+    }
+    75% {
+      transform: rotate(5deg);
+    }
+  }
+
+.logo img {
+  height: 30px;
+}
+
+/* Eyes that follow cursor */
+.eyes {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.eye {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pupil {
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 50%;
+  position: relative;
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  cursor: pointer;
+  z-index: 100;
+}
+
+.hamburger {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Navigation menu */
+.navigation {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 99;
+  transition: right 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation.active {
+  right: 0;
+}
+
+.navigation ul {
+  list-style: none;
+  text-align: center;
+}
+
+.navigation ul li {
+  margin: 2rem 0;
+}
+
+.navigation ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.navigation ul li a:hover {
+  color: #ccc;
+}
+
+/* Main content styles */
+main {
+  padding: 2rem 0;
+}
+
+/* Introduction section */
+.intro {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.intro h1 {
+  font-size: 2rem;
+  line-height: 1.4;
+  font-weight: 500;
+  max-width: 600px;
+}
+
+.highlight {
+  color: #c04cfd;
+}
+
+/* Decorative elements */
+.decorative-elements {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 300px;
+}
+
+.square {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transform: rotate(45deg);
+}
+
+.orange {
+  top: 0;
+  right: 50px;
+  border: 2px solid #ff5722;
+}
+
+.pink {
+  top: 80px;
+  right: 100px;
+  border: 2px solid #e91e63;
+}
+
+.yellow {
+  top: 160px;
+  right: 50px;
+  border: 2px solid #ffc107;
+}
+
+.teal {
+  top: 240px;
+  right: 100px;
+  border: 2px solid #00bcd4;
+}
+
+
+/* Section headers */
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.dash {
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  margin-right: 10px;
+}
+
+.section-header h2 {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #888;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Projects section */
+.projects {
+  padding: 2rem 0;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-content h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.tech-stack {
+  font-size: 0.8rem;
+  color: #333;
+}
+
+/* Social media section */
+.social {
+  padding: 2rem 0;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.social-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #333;
+  text-decoration: none;
+  color: #fff;
+  transition: border-color 0.3s ease;
+  min-height: 80px;
+}
+
+/* Hover effect only changes icon color and wiggle */
+.social-link:hover img.icon {
+  animation: wiggle 0.4s ease-in-out;
+}
+
+.social-link:hover {
+  
+}
+
+/* Colored bottom borders */
+.github {
+  border-bottom: 4px solid #2ecc71;
+}
+
+.linkedin {
+  border-bottom: 4px solid #3498db;
+}
+
+.facebook {
+  border-bottom: 4px solid #3b5998;
+}
+
+.instagram {
+  border-bottom: 4px solid #e1306c;
+}
+
+.discord {
+  border-bottom: 4px solid #7289da;
+}
+
+.youtube {
+  border-bottom: 4px solid #ff0000;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Contact section */
+.contact {
+  padding: 2rem 0;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.contact-item h4 {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.contact-item p {
+  font-size: 1rem;
+}
+
+/* Footer */
+footer {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #333;
+  margin-top: 2rem;
+}
+
+footer p {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.scroll-to-top {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+}
+
+.arrow-up {
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-135deg);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .project-grid, .social-grid, .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+  .decorative-elements {
+    display: none;
+  }
+}
