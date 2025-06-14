@@ -161,13 +161,36 @@ onBeforeUnmount(() => {
     clearInterval(roleInterval);
   }
 })
+
+const certificateList = ref([
+  '/certificates/udemy-vue.png',
+  '/certificates/udemy-python.png',
+  '/certificates/cisco-data-science.png',
+  '/certificates/cisco-py-essentials.png',
+  '/certificates/simplilearn-proj-mgmt.png',
+  '/certificates/simplilearn-php.png',
+  '/certificates/simplilearn-sql.png',
+  '/certificates/simplilearn-js.png',
+  '/certificates/simplilearn-data-analytics.png',
+  '/certificates/simplilearn-ai.png',
+])
+
+const currentCert = ref(0)
+
+const nextSlide = () => {
+  currentCert.value = (currentCert.value + 1) % certificateList.value.length
+}
+
+const prevSlide = () => {
+  currentCert.value = (currentCert.value - 1 + certificateList.value.length) % certificateList.value.length
+}
 </script>
 
 
 <template>
    <!-- Header with logo, eyes, and hamburger menu -->
   <header>
-      <div class="logo">
+      <div class="logo" @click="scrollToTop">
         <img src="/src/images/Logo.png" alt="CJM Logo" />
       </div>
 
@@ -234,52 +257,78 @@ onBeforeUnmount(() => {
           <!-- Project 1 -->
           <div class="project-card" style="background: linear-gradient(to bottom right, #ffe4c4, #ffdab9);">
             <div class="project-content">
-              <h4>Inches and Pixels.</h4>
-              <div class="tech-stack">VB.NET,SQL,HTML,CSS,JS</div>
+              <h4>Barangay Management Information System.</h4>
+              <div class="tech-stack">PHP,Laravel,PostgreSQL,Inertia,HTML,CSS,JS</div>
             </div>
           </div>
 
           <!-- Project 2 -->
           <div class="project-card" style="background: linear-gradient(to bottom right, #add8e6, #d8bfd8);">
             <div class="project-content">
-              <h4>Java Programs.</h4>
-              <div class="tech-stack">Java</div>
+              <h4>Lapu-Lapu Tourism Web Application.</h4>
+              <div class="tech-stack">Python, Django, MongoDB, JS</div>
             </div>
           </div>
 
           <!-- Project 3 -->
           <div class="project-card" style="background: linear-gradient(to bottom right, #ffb6c1, #ffc0cb);">
             <div class="project-content">
-              <h4>Link Saver Extension.</h4>
-              <div class="tech-stack">HTML CSS JS JSON</div>
+              <h4>MCAV Printing Services Inventory Management System.</h4>
+              <div class="tech-stack">Python, Django, SQL, JS</div>
             </div>
           </div>
 
           <!-- Project 4 -->
           <div class="project-card" style="background: linear-gradient(to bottom right, #ffb6c1, #9370db);">
             <div class="project-content">
-              <h4>Beshywap.</h4>
-              <div class="tech-stack">HTML,CSS,BOOTSTRAP,JS</div>
+              <h4>Yummify Food Ordering System Mobile.</h4>
+              <div class="tech-stack">Expo, TypeScript</div>
             </div>
           </div>
 
           <!-- Project 5 -->
           <div class="project-card" style="background: linear-gradient(to bottom right, #add8e6, #b0e0e6);">
             <div class="project-content">
-              <h4>Python Programs.</h4>
-              <div class="tech-stack">PYTHON</div>
+              <h4>Yeti Login.</h4>
+              <div class="tech-stack">HTML, CSS, JS</div>
             </div>
           </div>
 
           <!-- Project 6 -->
           <div class="project-card" style="background: linear-gradient(to bottom right, #e9967a, #deb887);">
             <div class="project-content">
-              <h4>WebDev Experiments.</h4>
-              <div class="tech-stack">HTML CSS JS JQUERY</div>
+              <h4>Shrouded Playground.</h4>
+              <div class="tech-stack">GDevelop 5</div>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- Certificates Carousel -->
+      <section class="certificates">
+        <div class="section-header">
+          <span class="dash"></span>
+          <h2>CERTIFICATES</h2>
+        </div>
+
+        <div class="carousel">
+          <button class="carousel-btn prev" @click="prevSlide">‹</button>
+
+          <div class="carousel-track">
+            <div
+              class="certificate-slide"
+              v-for="(cert, index) in certificateList"
+              :key="index"
+              v-show="currentCert === index"
+            >
+              <img :src="cert" alt="Certificate" class="certificate-img" />
+            </div>
+          </div>
+
+          <button class="carousel-btn next" @click="nextSlide">›</button>
+        </div>
+      </section>
+
 
       <!-- Social Media section -->
       <section class="social">

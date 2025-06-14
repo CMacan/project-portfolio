@@ -39,20 +39,21 @@ header {
   padding-right: 0;
 }
 
-  @keyframes wiggle {
-    0%, 100% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(-5deg);
-    }
-    75% {
-      transform: rotate(5deg);
-    }
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
   }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
 
 .logo img {
   height: 35px;
+  cursor: pointer;
 }
 
 /* Eyes that follow cursor */
@@ -65,8 +66,8 @@ header {
 }
 
 .eye {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background-color: #fff;
   border-radius: 50%;
   display: flex;
@@ -343,6 +344,55 @@ h3 {
   color: #333;
 }
 
+/* Certificate Section */
+
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.carousel-track {
+  overflow: hidden;
+}
+
+.certificate-slide {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.certificate-img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  padding: 0 1rem;
+  z-index: 10;
+  opacity: 0.6;
+}
+.carousel-btn:hover {
+  opacity: 1;
+}
+.prev {
+  left: 0;
+}
+.next {
+  right: 0;
+}
+
 /* Social media section */
 .social {
   padding: 2rem 0;
@@ -367,8 +417,8 @@ h3 {
 }
 
 /* Hover effect only changes icon color and wiggle */
-.social-link:hover img.icon {
-  animation: wiggle 0.4s ease-in-out;
+.social-link:hover {
+  animation: wiggle 0.5s ease-in-out;
 }
 
 /* Colored bottom borders */
