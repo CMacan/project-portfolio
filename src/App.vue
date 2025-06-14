@@ -211,7 +211,7 @@ let roleInterval: ReturnType<typeof setInterval> | null = null
 
 onMounted(() => {
   const logoImg = new Image()
-  logoImg.src = '/src/images/Logo.png'
+  logoImg.src = `${import.meta.env.BASE_URL}src/images/Logo.png`
   logoImg.onerror = () => console.error('Logo image failed to load')
 
   document.addEventListener('mousemove', (e) => {
