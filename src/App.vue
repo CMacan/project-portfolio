@@ -1,11 +1,30 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import './assets/home.css'
+import { useRouter, useRoute } from 'vue-router'
+import { nextTick } from 'vue'
 
 // Reactive state
+const $route = useRoute()
+const router = useRouter()
+const route = useRoute()
 const menuOpen = ref(false)
 const mouseX = ref(0)
 const mouseY = ref(0)
+
+function goToProjects() {
+  if (route.path === '/') {
+    // Already on home, scroll directly
+    scrollToSection('projects')
+  } else {
+    // Navigate to home, then scroll after DOM updates
+    router.push('/').then(() => {
+      nextTick(() => {
+        scrollToSection('projects')
+      })
+    })
+  }
+}
 
 // Refs to DOM elements
 const leftEye = ref<HTMLElement | null>(null)
@@ -19,6 +38,21 @@ const trackUrl = '/Cali.mp3'
 const bar1 = ref<HTMLElement | null>(null)
 const bar2 = ref<HTMLElement | null>(null)
 const bar3 = ref<HTMLElement | null>(null)
+const menuRef = ref<HTMLElement | null>(null)
+const toggleRef = ref<HTMLElement | null>(null)
+
+
+function scrollToSection(id: string, offset = 0): void {
+  const element = document.getElementById(id)
+  if (element) {
+    const y = element.getBoundingClientRect().top + window.pageYOffset + offset
+    window.scrollTo({ top: y, behavior: 'smooth' })
+  } else {
+    console.warn(`Element with id "${id}" not found.`)
+  }
+
+  closeMenu?.() // optional chaining to avoid error if undefined
+}
 
 
 const togglePlayer = () => {
@@ -77,6 +111,29 @@ watch(isPlaying, (playing) => {
     stopAnimatingBars()
   }
 })
+
+function handleClickOutside(event: MouseEvent) {
+  const target = event.target as Node
+
+  const clickedInsideMenu = menuRef.value?.contains(target)
+  const clickedToggle = toggleRef.value?.contains(target)
+
+  if (menuOpen.value && !clickedInsideMenu && !clickedToggle) {
+    menuOpen.value = false
+  }
+}
+
+
+watch(menuOpen, (newVal) => {
+  if (newVal) {
+    setTimeout(() => {
+      document.addEventListener('click', handleClickOutside)
+    }, 0)
+  } else {
+    document.removeEventListener('click', handleClickOutside)
+  }
+})
+
 
 // Toggle navigation menu
 const toggleMenu = () => {
@@ -152,6 +209,8 @@ onMounted(() => {
       currentRole.value = roles[index].title
       currentGradient.value = roles[index].gradient
     }, 2000)
+
+    animate()
 })
 
 
@@ -160,9 +219,10 @@ onBeforeUnmount(() => {
   if (roleInterval) {
     clearInterval(roleInterval);
   }
+  if (animationId) cancelAnimationFrame(animationId)
 })
 
-const certificateList = ref([
+const certificateList = [
   '/certificates/udemy-vue.png',
   '/certificates/udemy-python.png',
   '/certificates/cisco-data-science.png',
@@ -173,17 +233,48 @@ const certificateList = ref([
   '/certificates/simplilearn-js.png',
   '/certificates/simplilearn-data-analytics.png',
   '/certificates/simplilearn-ai.png',
-])
+]
+const repeatedCertificates = [...certificateList, ...certificateList]
 
-const currentCert = ref(0)
+const track = ref<HTMLElement | null>(null)
+let animationId: number | null = null
 
-const nextSlide = () => {
-  currentCert.value = (currentCert.value + 1) % certificateList.value.length
+// for movement
+let posX = 0
+let isDragging = false
+let startX = 0
+let dragStartPosX = 0
+const scrollSpeed = 1
+
+const animate = () => {
+  if (!isDragging && track.value) {
+    posX -= scrollSpeed
+    if (Math.abs(posX) >= track.value.scrollWidth / 2) {
+      posX = 0
+    }
+    track.value.style.transform = `translateX(${posX}px)`
+  }
+  animationId = requestAnimationFrame(animate)
 }
 
-const prevSlide = () => {
-  currentCert.value = (currentCert.value - 1 + certificateList.value.length) % certificateList.value.length
+const startDrag = (e: MouseEvent | TouchEvent) => {
+  isDragging = true
+  startX = e instanceof TouchEvent ? e.touches[0].clientX : e.clientX
+  dragStartPosX = posX
 }
+
+const onDrag = (e: MouseEvent | TouchEvent) => {
+  if (!isDragging || !track.value) return
+  const currentX = e instanceof TouchEvent ? e.touches[0].clientX : e.clientX
+  const movement = currentX - startX
+  posX = dragStartPosX + movement
+  track.value.style.transform = `translateX(${posX}px)`
+}
+
+const endDrag = () => {
+  isDragging = false
+}
+
 </script>
 
 
@@ -203,7 +294,7 @@ const prevSlide = () => {
         </div>
       </div>
 
-      <div class="menu-toggle" @click="toggleMenu">
+      <div class="menu-toggle" @click="toggleMenu" ref="toggleRef">
         <div class="hamburger" :class="{ 'active': menuOpen }">
           <span></span>
           <span></span>
@@ -211,16 +302,16 @@ const prevSlide = () => {
         </div>
       </div>
 
-      <div class="navigation" :class="{ 'active': menuOpen }">
+      <div class="navigation" :class="{ 'active': menuOpen }" ref="menuRef">
         <ul>
-          <li><a href="#" @click="closeMenu">Home</a></li>
-          <li><a href="#about" @click="closeMenu">About</a></li>
-          <li><a href="#projects" @click="closeMenu">Projects</a></li>
-          <li><a href="#contact" @click="closeMenu">Contact</a></li>
+          <li><a href="#" @click="$router.push('/')">Home</a></li>
+          <li><a href="#" @click="$router.push('/MyResume')">About</a></li>
+          <li><a href="#" @click.prevent=goToProjects>Projects</a></li>
+          <li><a href="#" @click.prevent="scrollToSection('social')">Contact</a></li>
         </ul>
       </div>
   </header>
-  <div class="portfolio">
+  <div v-if="$route.path === '/'" class="portfolio">
     <!-- Main content -->
     <main>
       
@@ -255,52 +346,52 @@ const prevSlide = () => {
 
         <div class="project-grid">
           <!-- Project 1 -->
-          <div class="project-card" style="background: linear-gradient(to bottom right, #ffe4c4, #ffdab9);">
+          <a href="https://github.com/CMacan/BarangaySawangCalero" target="_blank" rel="noopener" class="project-card" style="background: linear-gradient(to bottom right, #ffe4c4, #ffdab9);">
             <div class="project-content">
               <h4>Barangay Management Information System.</h4>
-              <div class="tech-stack">PHP,Laravel,PostgreSQL,Inertia,HTML,CSS,JS</div>
+              <div class="tech-stack">PHP, Laravel, PostgreSQL, Inertia, HTML, CSS, JS</div>
             </div>
-          </div>
+          </a>
 
           <!-- Project 2 -->
-          <div class="project-card" style="background: linear-gradient(to bottom right, #add8e6, #d8bfd8);">
+          <a href="https://github.com/CMacan/LLC-Tourism-Web-App" target="_blank" rel="noopener" class="project-card" style="background: linear-gradient(to bottom right, #add8e6, #d8bfd8);">
             <div class="project-content">
               <h4>Lapu-Lapu Tourism Web Application.</h4>
               <div class="tech-stack">Python, Django, MongoDB, JS</div>
             </div>
-          </div>
+          </a>
 
           <!-- Project 3 -->
-          <div class="project-card" style="background: linear-gradient(to bottom right, #ffb6c1, #ffc0cb);">
+          <a href="https://github.com/CMacan/MCAV-desktop-app" target="_blank" rel="noopener" class="project-card" style="background: linear-gradient(to bottom right, #ffb6c1, #ffc0cb);">
             <div class="project-content">
               <h4>MCAV Printing Services Inventory Management System.</h4>
               <div class="tech-stack">Python, Django, SQL, JS</div>
             </div>
-          </div>
+          </a>
 
           <!-- Project 4 -->
-          <div class="project-card" style="background: linear-gradient(to bottom right, #ffb6c1, #9370db);">
+          <a href="https://github.com/CMacan/yummify-food-app" target="_blank" rel="noopener" class="project-card" style="background: linear-gradient(to bottom right, #ffb6c1, #9370db);">
             <div class="project-content">
               <h4>Yummify Food Ordering System Mobile.</h4>
               <div class="tech-stack">Expo, TypeScript</div>
             </div>
-          </div>
+          </a>
 
           <!-- Project 5 -->
-          <div class="project-card" style="background: linear-gradient(to bottom right, #add8e6, #b0e0e6);">
+          <a href="https://github.com/CMacan/yeti-login" target="_blank" rel="noopener" class="project-card" style="background: linear-gradient(to bottom right, #add8e6, #b0e0e6);">
             <div class="project-content">
               <h4>Yeti Login.</h4>
               <div class="tech-stack">HTML, CSS, JS</div>
             </div>
-          </div>
+          </a>
 
           <!-- Project 6 -->
-          <div class="project-card" style="background: linear-gradient(to bottom right, #e9967a, #deb887);">
+          <a href="https://github.com/CMacan/Shrouded-Playground-Game" target="_blank" rel="noopener" class="project-card" style="background: linear-gradient(to bottom right, #e9967a, #deb887);">
             <div class="project-content">
               <h4>Shrouded Playground.</h4>
               <div class="tech-stack">GDevelop 5</div>
             </div>
-          </div>
+          </a>
         </div>
       </section>
 
@@ -311,27 +402,33 @@ const prevSlide = () => {
           <h2>CERTIFICATES</h2>
         </div>
 
-        <div class="carousel">
-          <button class="carousel-btn prev" @click="prevSlide">‹</button>
-
-          <div class="carousel-track">
+        <div
+          class="rolling-carousel"
+          ref="carousel"
+          @mousedown="startDrag"
+          @mousemove="onDrag"
+          @mouseup="endDrag"
+          @mouseleave="endDrag"
+          @touchstart="startDrag"
+          @touchmove="onDrag"
+          @touchend="endDrag"
+        >
+          <div class="carousel-track" ref="track">
             <div
-              class="certificate-slide"
-              v-for="(cert, index) in certificateList"
+              class="certificate-img"
+              v-for="(cert, index) in repeatedCertificates"
               :key="index"
-              v-show="currentCert === index"
             >
-              <img :src="cert" alt="Certificate" class="certificate-img" />
+              <img :src="cert" alt="Certificate" />
             </div>
           </div>
-
-          <button class="carousel-btn next" @click="nextSlide">›</button>
         </div>
       </section>
 
 
+
       <!-- Social Media section -->
-      <section class="social">
+      <section id="social" class="social">
         <div class="section-header">
           <span class="dash"></span>
           <h2>FOLLOW ME</h2>
@@ -435,4 +532,5 @@ const prevSlide = () => {
       </div>
     </div>
   </div>
+  <router-view v-else />
 </template>

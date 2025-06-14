@@ -12,6 +12,10 @@
   font-family: 'JetBrainsMono', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #000;
   color: #fff;
@@ -315,83 +319,86 @@ h3 {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
 .project-card {
   aspect-ratio: 1/1;
-  border-radius: 5px;
-  padding: 1.5rem;
+  border-radius: 10px;
+  padding: 2rem;
+  text-decoration: none;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  color: inherit;
   transition: transform 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  width: 100%;
 }
 
 .project-content h4 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
+  font-weight: 600;
   color: #000;
 }
 
 .tech-stack {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #333;
+  margin-top: auto;
 }
+
+
 
 /* Certificate Section */
 
-.carousel {
-  position: relative;
-  max-width: 800px;
-  margin: 3rem auto;
-  text-align: center;
+.rolling-carousel {
+  overflow: hidden;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  cursor: grab;
+  user-select: none;
 }
 
 .carousel-track {
-  overflow: hidden;
-}
-
-.certificate-slide {
-  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  transition: transform 0.1s linear;
+  will-change: transform;
+  width: max-content;
 }
 
 .certificate-img {
-  width: 100%;
-  height: auto;
-  max-height: 500px;
-  object-fit: contain;
-  border-radius: 10px;
+  flex: 0 0 250px;           /* fixed width container */
+  height: 300px;             /* same as image height */
+  margin: 0 20px;            /* smaller, uniform spacing between containers */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+  box-sizing: border-box;
+}
+
+.certificate-img img {
+  max-height: 100%;
+  max-width: auto;
+  object-fit: cover;
+  border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #333;
-  color: white;
-  font-size: 2rem;
-  border: none;
-  cursor: pointer;
-  padding: 0 1rem;
-  z-index: 10;
-  opacity: 0.6;
-}
-.carousel-btn:hover {
-  opacity: 1;
-}
-.prev {
-  left: 0;
-}
-.next {
-  right: 0;
-}
 
 /* Social media section */
 .social {
