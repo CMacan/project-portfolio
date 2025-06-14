@@ -9,7 +9,12 @@
       </div>
 
       <div class="pdf-container">
-        <iframe src="/project-portfolio/Resume.pdf" class="fullscreen-pdf" title="Resume PDF" />
+        <iframe
+          :src="`${import.meta.env.BASE_URL}resume.pdf`"
+          class="resume-pdf"
+          title="Resume PDF"
+        ></iframe>
+
         <div class="pdf-actions">
           <button @click="downloadResume" class="download-btn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
