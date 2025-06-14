@@ -237,16 +237,16 @@ onBeforeUnmount(() => {
 })
 
 const certificateList = [
-  'certificates/udemy-vue.png',
-  'certificates/udemy-python.png',
-  'certificates/cisco-data-science.png',
-  'certificates/cisco-py-essentials.png',
-  'certificates/simplilearn-proj-mgmt.png',
-  'certificates/simplilearn-php.png',
-  'certificates/simplilearn-sql.png',
-  'certificates/simplilearn-js.png',
-  'certificates/simplilearn-data-analytics.png',
-  'certificates/simplilearn-ai.png',
+  'udemy-vue.png',
+  'udemy-python.png',
+  'cisco-data-science.png',
+  'cisco-py-essentials.png',
+  'simplilearn-proj-mgmt.png',
+  'simplilearn-php.png',
+  'simplilearn-sql.png',
+  'simplilearn-js.png',
+  'simplilearn-data-analytics.png',
+  'simplilearn-ai.png',
 ]
 const repeatedCertificates = [...certificateList, ...certificateList]
 
