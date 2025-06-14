@@ -10,7 +10,7 @@
       
       <div class="pdf-container">
         <iframe 
-          src="/Resume.pdf" 
+          src="resume.pdf" 
           class="resume-pdf"
           title="Resume PDF"
         ></iframe>
@@ -89,7 +89,7 @@
           </svg>
         </button>
         <iframe 
-          src="Resume.pdf" 
+          src="resume.pdf" 
           class="fullscreen-pdf"
           title="Resume PDF Fullscreen"
         ></iframe>
@@ -157,8 +157,8 @@ export default {
   methods: {
     downloadResume() {
       const link = document.createElement('a');
-      link.href = '/Resume.pdf';
-      link.download = 'Resume.pdf';
+      link.href = 'resume.pdf';
+      link.download = 'resume.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
