@@ -7,14 +7,9 @@
         <span class="dash"></span>
         <h1>MY RESUME</h1>
       </div>
-      
+
       <div class="pdf-container">
-        <iframe 
-          :src="`${import.meta.env.BASE_URL}Resume.pdf`" 
-          class="resume-pdf"
-          title="Resume PDF"
-        ></iframe>
-        
+        <iframe :src="resumeUrl" class="fullscreen-pdf" title="Resume PDF" />
         <div class="pdf-actions">
           <button @click="downloadResume" class="download-btn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -24,7 +19,7 @@
             </svg>
             Download Resume
           </button>
-          
+
           <button @click="openFullscreen" class="fullscreen-btn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
@@ -42,10 +37,10 @@
         <h2>MY SKILLS</h2>
       </div>
       <h3>Languages I Know</h3>
-      
+
       <div class="skills-grid">
-        <div 
-          v-for="skill in knownLanguages" 
+        <div
+          v-for="skill in knownLanguages"
           :key="skill.name"
           class="skill-card known-skill"
           :title="skill.name"
@@ -64,10 +59,10 @@
         <h2>STUDYING</h2>
       </div>
       <h3>Currently Learning</h3>
-      
+
       <div class="learning-grid">
-        <div 
-          v-for="tech in currentlyLearning" 
+        <div
+          v-for="tech in currentlyLearning"
           :key="tech.name"
           class="skill-card learning-skill"
           :title="tech.name"
@@ -88,8 +83,8 @@
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
-        <iframe 
-          src="resume.pdf" 
+        <iframe
+          src="resume.pdf"
           class="fullscreen-pdf"
           title="Resume PDF Fullscreen"
         ></iframe>
@@ -99,6 +94,7 @@
 </template>
 
 <script lang='ts'>
+const resumeUrl = `${import.meta.env.BASE_URL}Resume.pdf`
 export default {
   name: 'MyResume',
   data() {
@@ -163,18 +159,18 @@ export default {
       link.click();
       document.body.removeChild(link);
     },
-    
+
     openFullscreen() {
       this.showFullscreen = true;
       document.body.style.overflow = 'hidden';
     },
-    
+
     closeFullscreen() {
       this.showFullscreen = false;
       document.body.style.overflow = 'auto';
     }
   },
-  
+
   beforeUnmount() {
     // Cleanup when component is destroyed
     document.body.style.overflow = 'auto';
@@ -424,44 +420,44 @@ h3 {
   .resume-page {
     padding: 20px 10px;
   }
-  
+
   .section-header h1,
   .section-header h2 {
     font-size: 1.8rem;
   }
-  
+
   h3 {
     font-size: 1.5rem;
   }
-  
+
   .resume-pdf {
     height: 600px;
   }
-  
+
   .skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
   }
-  
+
   .learning-grid {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-  
+
   .skill-card {
     padding: 30px 15px;
   }
-  
+
   .skill-icon {
     width: 60px;
     height: 60px;
   }
-  
+
   .pdf-actions {
     flex-direction: column;
     gap: 10px;
   }
-  
+
   .modal-content {
     width: 98%;
     height: 98%;
@@ -473,15 +469,15 @@ h3 {
   .section-header h2 {
     font-size: 1.5rem;
   }
-  
+
   .resume-pdf {
     height: 500px;
   }
-  
+
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .skill-icon {
     width: 50px;
     height: 50px;
