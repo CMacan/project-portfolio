@@ -15,12 +15,26 @@ const mouseY = ref(0)
 function goToProjects() {
   if (route.path === '/') {
     // Already on home, scroll directly
-    scrollToSection('projects')
+    scrollToSection('projects', 187)
   } else {
     // Navigate to home, then scroll after DOM updates
     router.push('/').then(() => {
       nextTick(() => {
-        scrollToSection('projects')
+        scrollToSection('project-content')
+      })
+    })
+  }
+}
+
+function goToSocial() {
+  if (route.path === '/') {
+    // Already on home, scroll directly
+    scrollToSection('social', 10)
+  } else {
+    // Navigate to home, then scroll after DOM updates
+    router.push('/').then(() => {
+      nextTick(() => {
+        scrollToSection('social')
       })
     })
   }
@@ -34,7 +48,7 @@ const rightPupil = ref<HTMLElement | null>(null)
 const isExpanded = ref(false)
 const isPlaying = ref(false)
 const audioRef = ref<HTMLAudioElement | null>(null)
-const trackUrl = '/Cali.mp3'
+const trackUrl = 'Cali.mp3'
 const bar1 = ref<HTMLElement | null>(null)
 const bar2 = ref<HTMLElement | null>(null)
 const bar3 = ref<HTMLElement | null>(null)
@@ -307,7 +321,7 @@ const endDrag = () => {
           <li><a href="#" @click="$router.push('/')">Home</a></li>
           <li><a href="#" @click="$router.push('/MyResume')">About</a></li>
           <li><a href="#" @click.prevent=goToProjects>Projects</a></li>
-          <li><a href="#" @click.prevent="scrollToSection('social')">Contact</a></li>
+          <li><a href="#" @click.prevent=goToSocial>Contact</a></li>
         </ul>
       </div>
   </header>
