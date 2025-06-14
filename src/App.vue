@@ -210,9 +210,9 @@ const currentGradient = ref(roles[0].gradient)
 let roleInterval: ReturnType<typeof setInterval> | null = null
 
 onMounted(() => {
-  const logoImg = new Image()
-  logoImg.src = `${import.meta.env.BASE_URL}src/images/Logo.png`
-  logoImg.onerror = () => console.error('Logo image failed to load')
+  // const logoImg = new Image()
+  // logoImg.src = `${import.meta.env.BASE_URL}src/images/Logo.png`
+  // logoImg.onerror = () => console.error('Logo image failed to load')
 
   document.addEventListener('mousemove', (e) => {
     trackMouse(e)
@@ -295,6 +295,7 @@ const endDrag = () => {
 <template>
    <!-- Header with logo, eyes, and hamburger menu -->
   <header>
+      <audio ref="audioRef" :src="trackUrl" />
       <div class="logo" @click="scrollToTop">
         <img src="/src/images/Logo.png" alt="CJM Logo" />
       </div>
@@ -521,7 +522,7 @@ const endDrag = () => {
     </footer>
 
     <!-- Sticky music player -->
-    <audio ref="audioRef" :src="trackUrl" />
+
     <img class="djcat" src="/djcat.gif" alt="DJ Cat" @click="togglePlayer" />
     <div
       class="music-player"
