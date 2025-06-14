@@ -9,7 +9,7 @@
       </div>
 
       <div class="pdf-container">
-        <iframe :src="resumeUrl" class="fullscreen-pdf" title="Resume PDF" />
+        <iframe src="/project-portfolio/Resume.pdf" class="fullscreen-pdf" title="Resume PDF" />
         <div class="pdf-actions">
           <button @click="downloadResume" class="download-btn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -94,7 +94,6 @@
 </template>
 
 <script lang='ts'>
-const resumeUrl = `${import.meta.env.BASE_URL}Resume.pdf`
 export default {
   name: 'MyResume',
   data() {
