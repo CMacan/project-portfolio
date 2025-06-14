@@ -89,7 +89,7 @@
           </svg>
         </button>
         <iframe 
-          src="/Resume.pdf" 
+          src="Resume.pdf" 
           class="fullscreen-pdf"
           title="Resume PDF Fullscreen"
         ></iframe>
