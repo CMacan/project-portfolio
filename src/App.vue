@@ -293,9 +293,9 @@ const endDrag = () => {
 
 
 <template>
+  <audio ref="audioRef" :src="trackUrl" />
    <!-- Header with logo, eyes, and hamburger menu -->
   <header>
-      <audio ref="audioRef" :src="trackUrl" />
       <div class="logo" @click="scrollToTop">
         <img src="/src/images/Logo.png" alt="CJM Logo" />
       </div>
