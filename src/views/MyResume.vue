@@ -10,7 +10,7 @@
 
       <div class="pdf-container">
         <iframe
-          :src="`${import.meta.env.BASE_URL}resume.pdf`"
+          src="resume.pdf`"
           class="resume-pdf"
           title="Resume PDF"
         ></iframe>
