@@ -636,12 +636,16 @@ footer .developer-name {
 /* Responsive styles */
 @media only screen and (max-width: 768px) {
   header {
-    padding: 2rem;
+    padding: 20px;
     flex-direction: column;
     align-items: flex-start;
     flex-direction: row;
     width: 100vw;
   }
+
+  .scroll-to-top{
+    margin-right: 20px;
+  }  
 
   .logo img {
     height: 25px;
@@ -735,15 +739,28 @@ footer .developer-name {
   }
 
   .music-player {
-    height: 80px;
+    height: 45px;
+    width: 80px;
   }
 
   .music-player.expanded {
     width: 73vw;
-    height: 80px;
+    height: 45px;
     border-radius: 1rem;
     padding: 1rem;
   }
+
+  .djcat {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
 
   .bar {
     width: 3px;
@@ -762,14 +779,14 @@ footer .developer-name {
     position:absolute;
     display: flex;
     flex-direction: row;
-    left:120px;
+    left:100px;
     align-items: center;
     gap: 10px;
   }
 
   .title {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
     color:black;
   }
   .artist {
@@ -785,7 +802,7 @@ footer .developer-name {
     font-size: 1.2em;
     padding: 8px 12px;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 
@@ -793,11 +810,15 @@ footer .developer-name {
 @media only screen and (max-width: 360px) {
 
   header {
-    padding: 2rem;
+    padding: 20px;
     flex-direction: column;
     align-items: flex-start;
     flex-direction: row;
     width: 100vw;
+  }
+
+  .scroll-to-top{
+    margin-right: 20px;
   }
 
   .logo img {
@@ -892,16 +913,28 @@ footer .developer-name {
   }
 
   .music-player {
-    height: 80px;
+    height: 45px;
+    width: 80px;
   }
 
   .music-player.expanded {
     width: 73vw;
-    height: 80px;
+    height: 45px;
     border-radius: 1rem;
     padding: 1rem;
   }
 
+    .djcat {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 2;
+      width: 80px;
+      height: auto;
+      object-fit: contain;
+      cursor: pointer;
+    }
+  
   .bar {
     width: 3px;
     height: 5px;
@@ -919,14 +952,14 @@ footer .developer-name {
     position:absolute;
     display: flex;
     flex-direction: row;
-    left:120px;
+    left:100px;
     align-items: center;
     gap: 10px;
   }
 
   .title {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
     color:black;
   }
   .artist {
@@ -942,6 +975,6 @@ footer .developer-name {
     font-size: 1.2em;
     padding: 8px 12px;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 25px;
   }
 }
