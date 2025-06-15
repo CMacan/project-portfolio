@@ -367,14 +367,14 @@ const endDrag = () => {
           <a href="https://github.com/CMacan/BMIS_Copy" target="_blank" rel="noopener" class="project-card" style="background: linear-gradient(to bottom right, #ffe4c4, #ffdab9);">
             <div class="project-content">
               <h4>Barangay Management Information System.</h4>
-              <div class="tech-stack">PHP, Laravel, PostgreSQL, Inertia, HTML, CSS, JS</div>
+              <div class="tech-stack">PHP, Laravel, PostgreSQL, ReactJS</div>
             </div>
           </a>
 
           <!-- Project 2 -->
           <a href="https://github.com/CMacan/LLC-Tourism-Web-App" target="_blank" rel="noopener" class="project-card" style="background: linear-gradient(to bottom right, #add8e6, #d8bfd8);">
             <div class="project-content">
-              <h4>Lapu-Lapu Tourism Web Application.</h4>
+              <h4>Tourism Web Application.</h4>
               <div class="tech-stack">Python, Django, MongoDB, JS</div>
             </div>
           </a>
@@ -382,7 +382,7 @@ const endDrag = () => {
           <!-- Project 3 -->
           <a href="https://github.com/CMacan/MCAV-desktop-app" target="_blank" rel="noopener" class="project-card" style="background: linear-gradient(to bottom right, #ffb6c1, #ffc0cb);">
             <div class="project-content">
-              <h4>MCAV Printing Services Inventory Management System.</h4>
+              <h4>Printing Services Inventory Mgmt System.</h4>
               <div class="tech-stack">Python, Django, SQL, JS</div>
             </div>
           </a>

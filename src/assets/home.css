@@ -59,6 +59,7 @@ header {
 .logo img {
   height: 35px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Eyes that follow cursor */
@@ -92,6 +93,7 @@ header {
 .menu-toggle {
   cursor: pointer;
   z-index: 100;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger {
@@ -101,6 +103,13 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.hamburger:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .hamburger span {
@@ -109,6 +118,7 @@ header {
   height: 2px;
   background-color: #fff;
   transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -582,6 +592,11 @@ footer .developer-name {
   cursor: pointer;
 }
 
+.djcat:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .music-player.expanded {
   width: 465px;
 }
@@ -645,7 +660,8 @@ footer .developer-name {
 
   .scroll-to-top{
     margin-right: 20px;
-  }  
+    -webkit-tap-highlight-color: transparent;
+  }
 
   .logo img {
     height: 25px;
@@ -746,7 +762,6 @@ footer .developer-name {
   .music-player.expanded {
     width: 73vw;
     height: 45px;
-    border-radius: 1rem;
     padding: 1rem;
   }
 
@@ -815,6 +830,10 @@ footer .developer-name {
     align-items: flex-start;
     flex-direction: row;
     width: 100vw;
+  }
+
+  .hamburger span {
+    -webkit-tap-highlight-color: transparent;
   }
 
   .scroll-to-top{
@@ -920,21 +939,21 @@ footer .developer-name {
   .music-player.expanded {
     width: 73vw;
     height: 45px;
-    border-radius: 1rem;
     padding: 1rem;
   }
 
-    .djcat {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 2;
-      width: 80px;
-      height: auto;
-      object-fit: contain;
-      cursor: pointer;
-    }
-  
+  .djcat {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   .bar {
     width: 3px;
     height: 5px;
