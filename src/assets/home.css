@@ -635,22 +635,67 @@ footer .developer-name {
 
 /* Responsive styles */
 @media only screen and (max-width: 768px) {
-  .header {
-    padding: 1rem;
+  header {
+    padding: 2rem;
     flex-direction: column;
     align-items: flex-start;
+    flex-direction: row;
     width: 100vw;
   }
+
+  .logo img {
+    height: 25px;
+    cursor: pointer;
+  }
+
+  .mobile-hide-br {
+    display: none;
+  }
+
+  .mobile-show-br {
+    display: block;
+  }
+
+  .portfolio {
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  .intro {
+    position: relative;
+    justify-content: flex-start;
+    padding:10rem 0;
+    overflow:hidden;
+    word-break: keep-all;
+  }
+
+  .rotating-text-wrapper {
+    display: inline-block;
+    position: relative;
+    min-height: 20rem; /* or enough for 2 lines */
+  }
+
+  .rotating-text {
+    display: inline-block;
+    word-break: break-word;
+  }
+
+  .square {
+    position: absolute;
+  }
+
   .intro h1 {
-    font-size: 1.5rem;
+    font-size: 2.1rem;
+    padding-top: 0;
+    word-break: keep-all;
   }
 
   h3 {
     font-size: 1.5rem;
   }
 
-  .project-card{
-    aspect-ratio: auto;
+  .projects {
+    padding-top: 0;
   }
 
   .project-grid, .social-grid, .contact-info {
@@ -658,7 +703,89 @@ footer .developer-name {
   }
 
   .decorative-elements {
+    display: block;
+    position:absolute;
+    z-index: -1;
+  }
+
+  .orange, .pink, .yellow, .teal {
+    width: 50px;
+    height: 50px;
+    border-width: 3px;
+  }
+
+  .orange {
+    top: -200px;
+    right: 50px;
+  }
+
+  .pink {
+    top: -250px;
+    left: -120px;
+  }
+
+  .teal {
+    top: 280px;
+    left: -120;
+  }
+
+  .yellow {
+    top: 350px;
+    right: 50px;
+  }
+
+  .music-player {
+    height: 80px;
+  }
+
+  .music-player.expanded {
+    width: 73vw;
+    height: 80px;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .bar {
+    width: 3px;
+    height: 5px;
+    background: limegreen;
+    transition: height 0.3s ease-in-out;
+  }
+  .music-bars {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 24px;
+  }
+
+  .info {
+    position:absolute;
+    display: flex;
+    flex-direction: row;
+    left:120px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 30px;
+    color:black;
+  }
+  .artist {
     display: none;
+    font-size: 30px;
+    color: #666;
+  }
+
+  .controls button {
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2em;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 30px;
   }
 }
 
