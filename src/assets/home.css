@@ -24,23 +24,24 @@ body {
 
 .portfolio {
   min-height: 100vh;
-  padding: 8rem;
+  padding: 10rem;
   padding-top:0;
   padding-bottom: 0;
 }
 
 /* Header styles */
 header {
-  position: sticky;       
-  top: 0;                  
-  z-index: 1000;           
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 3rem;
   padding-bottom: 2rem;
   height: 60px;
-  padding-right: 0;
+  padding-right: 2rem;
+  padding-left: 20px;
 }
 
 @keyframes wiggle {
@@ -461,22 +462,22 @@ h3 {
 }
 
 .social-link.github:hover .icon {
-  color: #2ecc71; 
+  color: #2ecc71;
 }
 .social-link.linkedin:hover .icon {
-  color: #3498db; 
+  color: #3498db;
 }
 .social-link.youtube:hover .icon {
-  color: #ff0000; 
+  color: #ff0000;
 }
 .social-link.facebook:hover .icon {
-  color: #3b5998; 
+  color: #3b5998;
 }
 .social-link.instagram:hover .icon {
-  color: #e1306c; 
+  color: #e1306c;
 }
 .social-link.discord:hover .icon {
-  color: #7289da; 
+  color: #7289da;
 }
 
 /* Contact section */
@@ -546,25 +547,6 @@ footer .developer-name {
   transform: rotate(-135deg);
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .intro h1 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  .project-grid, .social-grid, .contact-info {
-    grid-template-columns: 1fr;
-  }
-
-  .decorative-elements {
-    display: none;
-  }
-}
-
 /* Music */
 .music-player {
   height: 60px;
@@ -584,19 +566,19 @@ footer .developer-name {
 }
 
 .music-player img {
-  width: 200px; 
-  height: auto; 
-  object-fit: contain; 
+  width: 200px;
+  height: auto;
+  object-fit: contain;
 }
 
 .djcat {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  z-index: 2; 
-  width: 125px; 
-  height: auto; 
-  object-fit: contain; 
+  z-index: 2;
+  width: 125px;
+  height: auto;
+  object-fit: contain;
   cursor: pointer;
 }
 
@@ -645,4 +627,194 @@ footer .developer-name {
   padding: 8px 12px;
   cursor: pointer;
   font-size: 30px;
+}
+
+.mobile-show-br {
+  display: none;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+  .header {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100vw;
+  }
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .project-card{
+    aspect-ratio: auto;
+  }
+
+  .project-grid, .social-grid, .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+  .decorative-elements {
+    display: none;
+  }
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 480px) {
+
+  header {
+    padding: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100vw;
+  }
+
+  .logo img {
+    height: 25px;
+    cursor: pointer;
+  }
+
+  .mobile-hide-br {
+    display: none;
+  }
+
+  .mobile-show-br {
+    display: block;
+  }
+
+  .portfolio {
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  .intro {
+    position: relative;
+    justify-content: flex-start;
+    padding:10rem 0;
+    overflow:hidden;
+    word-break: keep-all;
+  }
+
+  .rotating-text-wrapper {
+    display: inline-block;
+    position: relative;
+    min-height: 20rem; /* or enough for 2 lines */
+  }
+
+  .rotating-text {
+    display: inline-block;
+    word-break: break-word;
+  }
+
+  .square {
+    position: absolute;
+  }
+
+  .intro h1 {
+    font-size: 2.1rem;
+    padding-top: 0;
+    word-break: keep-all;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .projects {
+    padding-top: 0;
+  }
+
+  .project-grid, .social-grid, .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+  .decorative-elements {
+    display: block;
+    position:absolute;
+    z-index: -1;
+  }
+
+  .orange, .pink, .yellow, .teal {
+    width: 50px;
+    height: 50px;
+    border-width: 3px;
+  }
+
+  .orange {
+    top: -200px;
+    right: 50px;
+  }
+
+  .pink {
+    top: -250px;
+    left: -120px;
+  }
+
+  .teal {
+    top: 280px;
+    left: -120;
+  }
+
+  .yellow {
+    top: 350px;
+    right: 50px;
+  }
+
+  .music-player {
+    height: 80px;
+  }
+
+  .music-player.expanded {
+    width: 73vw;
+    height: 80px;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .bar {
+    width: 3px;
+    height: 5px;
+    background: limegreen;
+    transition: height 0.3s ease-in-out;
+  }
+  .music-bars {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 24px;
+  }
+
+  .info {
+    position:absolute;
+    display: flex;
+    flex-direction: row;
+    left:120px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 30px;
+    color:black;
+  }
+  .artist {
+    display: none;
+    font-size: 30px;
+    color: #666;
+  }
+
+  .controls button {
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2em;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 30px;
+  }
 }

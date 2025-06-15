@@ -96,6 +96,13 @@
       </div>
     </div>
   </div>
+  <footer style="position: relative;">
+    <p>Developed by <span class="developer-name">Charles Jayson M. Macan</span></p>
+
+    <button class="scroll-to-top" @click="scrollToTop">
+      <span class="arrow-up"></span>
+    </button>
+  </footer>
 </template>
 
 <script lang='ts'>
@@ -148,8 +155,8 @@ export default {
           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
         },
         {
-          name: 'Firebase',
-          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg'
+          name: 'TypeScript',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg'
         }
       ]
     }
@@ -172,6 +179,9 @@ export default {
     closeFullscreen() {
       this.showFullscreen = false;
       document.body.style.overflow = 'auto';
+    },
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   },
 
@@ -304,10 +314,11 @@ h3 {
 
 .learning-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  max-width: 800px;
+  margin-bottom: 60px;
 }
+
 
 /* Skill Cards */
 .skill-card {
@@ -444,7 +455,7 @@ h3 {
   }
 
   .learning-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
   }
 

@@ -87,7 +87,7 @@ const togglePlay = () => {
   isPlaying.value = !isPlaying.value
 }
 
-let isAnimating = false 
+let isAnimating = false
 let animationFrame: number | null = null
 
 const animateBars = () => {
@@ -101,7 +101,7 @@ const animateBars = () => {
     }
   })
   animationFrame = requestAnimationFrame(() => {
-    setTimeout(animateBars, 300) 
+    setTimeout(animateBars, 300)
     isAnimating = false
   })
 }
@@ -190,19 +190,19 @@ const scrollToTop = () => {
 const roles = [
   {
     title: "Full Stack Developer",
-    gradient: "linear-gradient(90deg, #00c6ff, #0072ff)" 
+    gradient: "linear-gradient(90deg, #00c6ff, #0072ff)"
   },
   {
     title: "Cybersecurity Analyst",
-    gradient: "linear-gradient(90deg, #f9d423, #ff4e50)" 
+    gradient: "linear-gradient(90deg, #f9d423, #ff4e50)"
   },
   {
     title: "AI/ML Engineer",
-    gradient: "linear-gradient(90deg, #ff7300, #f83600)" 
+    gradient: "linear-gradient(90deg, #ff7300, #f83600)"
   },
   {
     title: "Software Engineer",
-    gradient: "linear-gradient(90deg, #ff6ec7, #ffc3a0)" 
+    gradient: "linear-gradient(90deg, #ff6ec7, #ffc3a0)"
   }
 ]
 const currentRole = ref(roles[0].title)
@@ -329,17 +329,20 @@ const endDrag = () => {
   <div v-if="$route.path === '/'" class="portfolio">
     <!-- Main content -->
     <main>
-      
+
       <!-- Introduction section -->
       <section class="intro">
         <h1>
-          Hey! I am Charles.<br />
-          I am a BSIT student that<br />
-          wants to be a <span class="highlight rotating-text" :style="{
-            backgroundImage: currentGradient,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }">{{ currentRole }}</span>
+          Hey! I am Charles.<br class="mobile-hide-br" />
+          I am a BSIT student that<br class="mobile-hide-br" />
+          wants to be a <br class="mobile-show-br">
+          <span class="highlight rotating-text-wrapper">
+            <span class="rotating-text" :style="{
+              backgroundImage: currentGradient,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }">{{ currentRole }}</span>
+          </span>
         </h1>
 
         <!-- Decorative elements -->
