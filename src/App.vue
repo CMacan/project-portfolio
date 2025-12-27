@@ -398,7 +398,7 @@ const endDrag = () => {
             <div class="project-content">
               <h4>Tourism Web Application.</h4>
               <div class="tech-stack">Python, Django, MongoDB, JS</div>
-              <a href="https://github.com/CMacan/LLC-Tourism-Web-App" target="_blank" rel="noopener" class="live-demo-button button" style="--clr: #88b4d5;" aria-label="Open Tourism Web Application live demo">
+              <a href="https://llc-tourism-web-app-vs6s.onrender.com/" target="_blank" rel="noopener" class="live-demo-button button" style="--clr: #88b4d5;" aria-label="Open Tourism Web Application live demo">
                 <span class="button-decor"></span>
                 <span class="button-content">
                   <span class="button__icon">
