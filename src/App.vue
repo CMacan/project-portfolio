@@ -456,9 +456,9 @@ const endDrag = () => {
           <!-- Project 4 -->
           <div class="project-card" style="background: linear-gradient(to bottom right, #ffb6c1, #9370db);">
             <div class="project-content">
-              <h4>Yummify Food Ordering System Mobile.</h4>
+              <h4>Yummify Food Ordering Mobile Application.</h4>
               <div class="tech-stack">Expo, TypeScript</div>
-              <a href="https://github.com/CMacan/yummify-food-app" target="_blank" rel="noopener" class="live-demo-button button" style="--clr: #a784d9;" aria-label="Open Yummify Food Ordering System live demo">
+              <a href="https://yummify-food-app.vercel.app/" target="_blank" rel="noopener" class="live-demo-button button" style="--clr: #a784d9;" aria-label="Open Yummify Food Ordering System live demo">
                 <span class="button-decor"></span>
                 <span class="button-content">
                   <span class="button__icon">
