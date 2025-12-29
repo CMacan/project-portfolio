@@ -426,8 +426,8 @@ const endDrag = () => {
           <!-- Project 3 -->
           <div class="project-card" style="background: linear-gradient(to bottom right, #ffb6c1, #ffc0cb);">
             <div class="project-content">
-              <h4>Printing Services Inventory Mgmt System.</h4>
-              <div class="tech-stack">Python, Django, SQL, JS</div>
+              <h4>Printing Services Inventory Mgmt System Desktop Application.</h4>
+              <div class="tech-stack">Python, PyQt5, SQL, JS</div>
               <a href="https://github.com/CMacan/MCAV-desktop-app" target="_blank" rel="noopener" class="live-demo-button button" style="--clr: #ff8ba3;" aria-label="Open Printing Services Inventory Management System live demo">
                 <span class="button-decor"></span>
                 <span class="button-content">
