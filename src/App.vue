@@ -488,7 +488,7 @@ const endDrag = () => {
             <div class="project-content">
               <h4>Yeti Login.</h4>
               <div class="tech-stack">HTML, CSS, JS</div>
-              <a href="https://github.com/CMacan/yeti-login" target="_blank" rel="noopener" class="live-demo-button button" style="--clr: #8fbfd6;" aria-label="Open Yeti Login live demo">
+              <a href="https://cmacan.github.io/yeti-login/" target="_blank" rel="noopener" class="live-demo-button button" style="--clr: #8fbfd6;" aria-label="Open Yeti Login live demo">
                 <span class="button-decor"></span>
                 <span class="button-content">
                   <span class="button__icon">
