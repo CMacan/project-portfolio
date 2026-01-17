@@ -800,6 +800,23 @@ footer .developer-name {
     grid-template-columns: 1fr;
   }
 
+  .project-card {
+    aspect-ratio: auto;
+    min-height: auto;
+    padding: 1.75rem;
+  }
+
+  .project-content {
+    align-items: flex-start;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .live-demo-button {
+    align-self: flex-end;
+    margin-top: 1.5rem;
+  }
+
   .decorative-elements {
     display: block;
     position:absolute;
@@ -975,6 +992,23 @@ footer .developer-name {
 
   .project-grid, .social-grid, .contact-info {
     grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    aspect-ratio: auto;
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .project-content {
+    align-items: flex-start;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .live-demo-button {
+    align-self: flex-start;
+    margin-top: 1.25rem;
   }
 
   .decorative-elements {
