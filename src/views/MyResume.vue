@@ -41,7 +41,7 @@
         <span class="dash"></span>
         <h2>MY SKILLS</h2>
       </div>
-      <h3>Languages I Know</h3>
+      <h3>Technologies I use</h3>
 
       <div class="skills-grid">
         <div
@@ -113,8 +113,20 @@ export default {
       showFullscreen: false,
       knownLanguages: [
         {
-          name: 'C++',
-          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg'
+          name: 'Next.js',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg'
+        },
+                {
+          name: 'PHP',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg'
+        },
+        {
+          name: 'Laravel',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg'
+        },
+                {
+          name: 'PostgreSQL',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg'
         },
         {
           name: 'Java',
@@ -129,10 +141,6 @@ export default {
           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg'
         },
         {
-          name: 'Laravel',
-          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg'
-        },
-        {
           name: 'HTML5',
           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'
         },
@@ -143,21 +151,45 @@ export default {
         {
           name: 'JavaScript',
           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
+        },       
+        {
+          name: 'MongoDB',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg'
+        },
+        {
+          name: 'MySQL',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg'
+        },
+        {
+          name: 'Expo',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/expo/expo-original.svg'
+        },
+        {
+          name: 'Android Studio',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg'
+        },
+        {
+          name: 'C',
+          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg'
         }
       ],
       currentlyLearning: [
-        {
-          name: 'JavaScript Advanced',
-          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
-        },
-        {
-          name: 'React',
-          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
-        },
-        {
-          name: 'TypeScript',
-          icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg'
-        }
+          {
+            name: 'Java',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
+          },
+          {
+            name: 'TypeScript',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg'
+          },
+          {
+            name: 'GraphQL',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg'
+          },
+          {
+            name: 'AI',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg'
+          }
       ]
     }
   },
