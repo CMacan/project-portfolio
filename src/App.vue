@@ -247,6 +247,8 @@ const certificateList = [
   'simplilearn-js.png',
   'simplilearn-data-analytics.png',
   'simplilearn-ai.png',
+  'simplilearn-powerBI.png',
+  'udemy-powerBI.jpg',
 ]
 const repeatedCertificates = [...certificateList, ...certificateList]
 

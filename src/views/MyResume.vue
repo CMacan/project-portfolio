@@ -124,7 +124,7 @@ export default {
           name: 'Laravel',
           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg'
         },
-                {
+        {
           name: 'PostgreSQL',
           icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg'
         },
